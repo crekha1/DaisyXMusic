@@ -40,7 +40,7 @@ async def pause(_, message: Message):
       conid = conchat.linked_chat.id
       chid = conid
     except:
-      await message.reply("Is chat even linked")
+      await message.reply("Plese Check If Chat Is Linked Or Not")
       return    
     chat_id = chid
     if (chat_id not in callsmusic.active_chats) or (
@@ -148,4 +148,4 @@ async def admincache(client, message: Message):
             for member in await conchat.linked_chat.get_members(filter="administrators")
         ],
     )
-    await message.reply_text("❇️ Admin cache refreshed!")
+    await message.reply_text("🌟 Zer0Byte 2.0 Refreshed!")
