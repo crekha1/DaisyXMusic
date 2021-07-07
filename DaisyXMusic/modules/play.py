@@ -69,7 +69,7 @@ def cb_admin_check(func: Callable) -> Callable:
         if cb.from_user.id in admemes:
             return await func(client, cb)
         else:
-            await cb.answer("You ain't allowed!", show_alert=True)
+            await cb.answer("This Can Only Be Used By An Admin :p", show_alert=True)
             return
 
     return decorator
@@ -198,10 +198,8 @@ def r_ply(type_):
                 InlineKeyboardButton("▶️", "resume"),
                 InlineKeyboardButton("⏭", "skip"),
             ],
-            [
-                InlineKeyboardButton("Playlist 📖", "playlist"),
-            ],
-            [InlineKeyboardButton("❌ Close", "cls")],
+
+            [InlineKeyboardButton("Close Menu", "cls")],
         ]
     )
     return mar
@@ -216,7 +214,7 @@ async def ee(client, message):
     if stats:
         await message.reply(stats)
     else:
-        await message.reply("No VC instances running in this chat")
+        await message.reply("Turn on your Voice Chat")
 
 
 @Client.on_message(filters.command("player") & filters.group & ~filters.edited)
@@ -237,7 +235,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
-        await message.reply("No VC instances running in this chat")
+        await message.reply("Turn on your Voice Chat")
 
 
 @Client.on_message(
@@ -264,18 +262,18 @@ async def hfmm(_, message):
             return
         DISABLED_GROUPS.remove(message.chat.id)
         await lel.edit(
-            f"Music Player Successfully Enabled For Users In The Chat {message.chat.id}"
+            f"Zer0Byte 2.0 Successfully Enabled For Users In The Chat {message.chat.id}"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
         lel = await message.reply("`Processing...`")
         
         if message.chat.id in DISABLED_GROUPS:
-            await lel.edit("Music Player Already turned off In This Chat")
+            await lel.edit("Zer0Byte 2.0 Already turned off In This Chat")
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"Music Player Successfully Deactivated For Users In The Chat {message.chat.id}"
+            f"Zer0Byte 2.0 Successfully Deactivated For Users In The Chat {message.chat.id}"
         )
     else:
         await message.reply_text(
@@ -385,7 +383,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.active_chats) or (
             callsmusic.active_chats[chet_id] == "playing"
         ):
-            await cb.answer("Chat is not connected or already playng", show_alert=True)
+            await cb.answer("Chat is not connected or already playing", show_alert=True)
         else:
             callsmusic.resume(chet_id)
             await cb.answer("Music Resumed!")
@@ -412,10 +410,8 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("▶️", "resume"),
                     InlineKeyboardButton("⏭", "skip"),
                 ],
-                [
-                    InlineKeyboardButton("Playlist 📖", "playlist"),
-                ],
-                [InlineKeyboardButton("❌ Close", "cls")],
+
+                [InlineKeyboardButton("Close Menu", "cls")],
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -476,7 +472,7 @@ async def play(_, message: Message):
             if administrator == message.from_user.id:
                 if message.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>Remember to add @Zer0ByteAssistant2 to your channel</b>",
                     )
                     pass
                 try:
@@ -490,10 +486,10 @@ async def play(_, message: Message):
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "I joined this group for playing music in VC"
+                        message.chat.id, "🌟 Zer0Byte 2.0 Assistant Joined 🌟"
                     )
                     await lel.edit(
-                        "<b>helper userbot joined your chat</b>",
+                        "<b>🌟 Zer0Byte 2.0 Assistant Joined 🌟</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -501,15 +497,15 @@ async def play(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add assistant to your Group and try again</b>",
+                        f"<b>Error 404 \nUser {user.first_name} couldn't join your group due to heavy requests for Zer0Byte 2.0! Make sure user is not banned in group."
+                        "\n\nOr manually add @Zer0ByteAssistant2 to your Group and try again</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
+            f"<i> @Zer0ByteAssistant2 not in this chat, Ask admin to send /play command for first time or add @Zer0ByteAssistant2 manually</i>"
         )
         return
     text_links=None
@@ -549,10 +545,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
+                    InlineKeyboardButton("🗒 Playlist", callback_data="playlist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+                [InlineKeyboardButton(text="Close Menu", callback_data="cls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -606,14 +602,11 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
+                    InlineKeyboardButton("🗒 Playlist", callback_data="playlist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
                 ],
-                [
-                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
-                ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+
+                [InlineKeyboardButton(text="Close Menu", callback_data="cls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -656,7 +649,7 @@ async def play(_, message: Message):
                         InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
                         InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
                     ],
-                    [InlineKeyboardButton(text="❌", callback_data="cls")],
+                    [InlineKeyboardButton(text="Close Menu", callback_data="cls")],
                 ]
             )       
             await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
@@ -699,14 +692,11 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
+                        InlineKeyboardButton("🗒 Playlist", callback_data="playlist"),
                         InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
                     ],
-                    [
-                        InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                        InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
-                    ],
-                    [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+
+                    [InlineKeyboardButton(text="Close Menu", callback_data="cls")],
                 ]
             )
             requested_by = message.from_user.first_name
@@ -745,7 +735,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ <b>Playing</b> here the song requested by {} via Youtube Music 😎".format(
+            caption="▶️ <b>Playing</b> here the song requested by {} via Zer0Byte 2.0".format(
                 message.from_user.mention()
             ),
         )
@@ -776,7 +766,7 @@ async def ytplay(_, message: Message):
             if administrator == message.from_user.id:
                 if message.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>Remember to add @Zer0ByteAssistant2 to your channel</b>",
                     )
                     pass
                 try:
@@ -790,7 +780,7 @@ async def ytplay(_, message: Message):
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "I joined this group for playing music in VC"
+                        message.chat.id, "🌟 Zer0Byte 2.0 Assistant Joined 🌟"
                     )
                     await lel.edit(
                         "<b>helper userbot joined your chat</b>",
@@ -801,15 +791,15 @@ async def ytplay(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add assistant to your Group and try again</b>",
+                        f"<b>Error 404 \nUser {user.first_name} couldn't join your group due to heavy requests for Zer0Byte 2.0! Make sure user is not banned in group."
+                        "\n\nOr manually add @Zer0ByteAssistant2 to your Group and try again</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
+            f"<i> @Zer0ByteAssistant2 not in this chat, Ask admin to send /play command for first time or add @Zer0ByteAssistant2 manually</i>"
         )
         return
     await lel.edit("🔎 <b>Finding</b>")
@@ -857,14 +847,11 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
+                InlineKeyboardButton("🗒 Playlist", callback_data="playlist"),
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
-            [
-                InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
-            ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+
+            [InlineKeyboardButton(text="Close Menu", callback_data="cls")],
         ]
     )
     requested_by = message.from_user.first_name
@@ -903,7 +890,7 @@ async def ytplay(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ <b>Playing</b> here the song requested by {} via Youtube Music 😎".format(
+            caption="▶️ <b>Playing</b> here the song requested by {} via Zer0Byte 2.0".format(
                 message.from_user.mention()
             ),
         )
@@ -932,7 +919,7 @@ async def deezer(client: Client, message_: Message):
             if administrator == message_.from_user.id:
                 if message_.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>Remember to add @Zer0ByteAssistant2 to your channel</b>",
                     )
                     pass
                 try:
@@ -946,10 +933,10 @@ async def deezer(client: Client, message_: Message):
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message_.chat.id, "I joined this group for playing music in VC"
+                        message_.chat.id, "🌟 Zer0Byte 2.0 Joined 🌟"
                     )
                     await lel.edit(
-                        "<b>helper userbot joined your chat</b>",
+                        "<b>🌟 Zer0Byte 2.0 Assistant Joined 🌟</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -957,15 +944,15 @@ async def deezer(client: Client, message_: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add assistant to your Group and try again</b>",
+                        f"<b>Error 404 \nUser {user.first_name} couldn't join your group due to heavy requests for Zer0Byte 2.0! Make sure user is not banned in group."
+                        "\n\nOr manually add @Zer0ByteAssistant2 to your Group and try again</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
+            f"<i> @Zer0ByteAssistant2 not in this chat, Ask admin to send /play command for first time or add @Zer0ByteAssistant2 manually</i>"
         )
         return
     requested_by = message_.from_user.first_name
@@ -1003,8 +990,8 @@ async def deezer(client: Client, message_: Message):
                 InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
-            [InlineKeyboardButton(text="Listen On Deezer 🎬", url=f"{url}")],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="Listen On Deezer", url=f"{url}")],
+            [InlineKeyboardButton(text="Close Menu", callback_data="cls")],
         ]
     )
     file_path = await convert(wget.download(url))
@@ -1020,9 +1007,9 @@ async def deezer(client: Client, message_: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await res.edit_text(f"✯{bn}✯= #️⃣ Queued at position {position}")
+        await res.edit_text(f"Zer0Byte 2.0 - #️⃣ Queued at position {position}")
     else:
-        await res.edit_text(f"✯{bn}✯=▶️ Playing.....")
+        await res.edit_text(f"Zer0Byte 2.0 - ▶️ Playing.....")
 
         que[chat_id] = []
         qeue = que.get(chat_id)
@@ -1059,7 +1046,7 @@ async def jiosaavn(client: Client, message_: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "DaisyMusic"
+        user.first_name = "Zer0Byte 2.0"
     usar = user
     wew = usar.id
     try:
@@ -1070,7 +1057,7 @@ async def jiosaavn(client: Client, message_: Message):
             if administrator == message_.from_user.id:
                 if message_.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>Remember to add @Zer0ByteAssistant2 to your channel</b>",
                     )
                     pass
                 try:
@@ -1084,10 +1071,10 @@ async def jiosaavn(client: Client, message_: Message):
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message_.chat.id, "I joined this group for playing music in VC"
+                        message_.chat.id, "🌟 Zer0Byte 2.0 Joined 🌟"
                     )
                     await lel.edit(
-                        "<b>helper userbot joined your chat</b>",
+                        "<b>🌟 Zer0Byte 2.0 Assistant Joined 🌟</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -1095,15 +1082,15 @@ async def jiosaavn(client: Client, message_: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
+                        f"<b>Error 404 \nUser {user.first_name} couldn't join your group due to heavy requests for Zer0Byte 2.0! Make sure user is not banned in group."
+                        "\n\nOr manually add @Zer0ByteAssistant2 to your Group and try again</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            "<i> helper Userbot not in this chat, Ask admin to send /play command for first time or add assistant manually</i>"
+            "<i> @Zer0ByteAssistant2 not in this chat, Ask admin to send /play command for first time or add @Zer0ByteAssistant2 manually</i>"
         )
         return
     requested_by = message_.from_user.first_name
@@ -1136,15 +1123,15 @@ async def jiosaavn(client: Client, message_: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
+                InlineKeyboardButton("🗒 Playlist", callback_data="playlist"),
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
             [
                 InlineKeyboardButton(
-                    text="Join Updates Channel", url=f"https://t.me/{updateschannel}"
+                    text="Join Updates Channel", url=f"https://t.me/Zer0ByteOfficial"
                 )
             ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="Close Menu", callback_data="cls")],
         ]
     )
     file_path = await convert(wget.download(slink))
@@ -1186,7 +1173,7 @@ async def jiosaavn(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"Playing {sname} Via Jiosaavn",
+        caption=f"Playing {sname} Via Zer0Byte ✘ JioSavaan",
     )
     os.remove("final.png")
 
@@ -1206,9 +1193,9 @@ async def lol_cb(b, cb):
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
-        await cb.answer("You ain't the person who requested to play the song!", show_alert=True)
+        await cb.answer("This Nigga Dont Know That He Isnt the Person Requested For The Song", show_alert=True)
         return
-    await cb.message.edit("Hang On... Player Starting")
+    await cb.message.edit("Zer0Byte 2.0 Starting")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -1245,14 +1232,11 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
+                InlineKeyboardButton("🗒 Playlist", callback_data="playlist"),
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
-            [
-                InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
-            ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+
+            [InlineKeyboardButton(text="Close Menu", callback_data="cls")],
         ]
     )
     requested_by = useer_name
@@ -1294,7 +1278,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ <b>Playing</b> here the song requested by {r_by.mention} via Youtube Music 😎",
+            caption=f"▶️ <b>Playing</b> here the song requested by {r_by.mention} via Zer0Byte 2.0",
         )
         
         os.remove("final.png")
