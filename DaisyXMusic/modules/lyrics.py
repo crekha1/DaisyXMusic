@@ -32,7 +32,7 @@ from pyrogram import Client as pbot
 
 @pbot.on_message(filters.command(["lyric", "lyrics"]))
 async def _(client, message):
-    lel = await message.reply("Searching For Lyrics.....")
+    lel = await message.reply("Zer0Byte 2.0 Is Searching For Lyrics.....")
     query = message.text
     if not query:
         await lel.edit("`What I am Supposed to find `")
