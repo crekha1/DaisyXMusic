@@ -40,24 +40,24 @@ async def addchannel(client, message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "DaisyMusic"
+        user.first_name = "Zer0Byte 2.0"
 
     try:
         await USER.join_chat(invitelink)
-        await USER.send_message(message.chat.id, "I joined here as you requested")
+        await USER.send_message(message.chat.id, "Zer0Byte 2.0 Assistant Joined as you Requested")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>helper already in your chat</b>",
+            "<b>@Zer0ByteAssistant2 already in your chat</b>",
         )
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} couldn't join your group due to heavy join requests for userbot! Make sure user is not banned in group."
-            "\n\nOr manually add @DaisyXhelper to your Group and try again</b>",
+            f"<b>Error 404 \nUser {user.first_name} couldn't join your group due to heavy requests for Zer0Byte 2.0! Make sure user is not banned in group."
+                        "\n\nOr manually add @Zer0ByteAssistant2 to your Group and try again</b>",
         )
         return
     await message.reply_text(
-        "<b>helper userbot joined your chat</b>",
+        "<b>Zer0Byte 2.0 userbot joined your chat</b>",
     )
 
 
@@ -107,31 +107,31 @@ async def addcchannel(client, message):
         invitelink = await client.export_chat_invite_link(chid)
     except:
         await message.reply_text(
-            "<b>Add me as admin of yor channel first</b>",
+            "<b>Add me as admin of your channel first</b>",
         )
         return
 
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "DaisyMusic"
+        user.first_name = "Zer0Byte 2.0"
 
     try:
         await USER.join_chat(invitelink)
-        await USER.send_message(message.chat.id, "I joined here as you requested")
+        await USER.send_message(message.chat.id, "Zer0Byte 2.0 Assistant Joined as you Requested")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>helper already in your channel</b>",
+            "<b>Zer0Byte Assistant already in your channel</b>",
         )
         return
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} couldn't join your channel due to heavy join requests for userbot! Make sure user is not banned in channel."
-            "\n\nOr manually add @DaisyXhelper to your Group and try again</b>",
+            f"<b>Error 404 \nUser {user.first_name} couldn't join your group due to heavy requests for Zer0Byte 2.0! Make sure user is not banned in group."
+                        "\n\nOr manually add @Zer0ByteAssistant2 to your Group and try again</b>",
         )
         return
     await message.reply_text(
-        "<b>helper userbot joined your channel</b>",
+        "<b>Zer0Byte Assistant userbot joined your channel</b>",
     )
     
