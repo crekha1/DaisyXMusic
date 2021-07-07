@@ -38,15 +38,15 @@ def _start(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group 🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+                        "➕ Add Zer0Byte 2.0 ➕", url=f"https://t.me/Zer0ByteMusicRoBot?startgroup=true")],
                 [
                     InlineKeyboardButton(
-                        "📲 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"), 
+                        "🔔 Updates", url=f"https://t.me/Zer0ByteOfficial"), 
                     InlineKeyboardButton(
-                        "💬 Support", url=f"https://t.me/{SUPPORT_GROUP}")
+                        "👥 Support", url=f"https://t.me/Zer0ByteSupport")
                 ],[
                     InlineKeyboardButton(
-                        "🛠 Source Code 🛠", url=f"https://{SOURCE_CODE}")
+                        "✨ Off-Topic", url=f"https://t.me/Friends_Chatting_Grp")
                 ]
             ]
         ),
@@ -56,12 +56,12 @@ def _start(client, message):
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
     await message.reply_text(
-        f"""**🔴 {PROJECT_NAME} is online**""",
+        f"""**🌟 Zer0Byte 2.0 Is Online**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "💬 Support Chat", url=f"https://t.me/{SUPPORT_GROUP}"
+                        "Updates", url=f"https://t.me/Zer0ByteOfficial"
                     )
                 ]
             ]
@@ -96,22 +96,22 @@ def help_answer(client, callback_query):
 def map(pos):
     if(pos==1):
         button = [
-            [InlineKeyboardButton(text = '▶️', callback_data = "help+2")]
+            [InlineKeyboardButton(text = '→', callback_data = "help+2")]
         ]
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/{SUPPORT_GROUP}"
         button = [
-            [InlineKeyboardButton("➕ Add me to your Group 🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
-            [InlineKeyboardButton(text = '📲 Updates', url=f"https://t.me/{UPDATES_CHANNEL}"),
-             InlineKeyboardButton(text = '💬 Support', url=f"https://t.me/{SUPPORT_GROUP}")],
-            [InlineKeyboardButton(text = '🛠 Source Code 🛠', url=f"https://{SOURCE_CODE}")],
-            [InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}")]
+            [InlineKeyboardButton("➕ Add Zer0Byte 2.0 ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+            [InlineKeyboardButton(text = '🔔 Updates', url=f"https://t.me/Zer0ByteOfficial"),
+             InlineKeyboardButton(text = '👥 Support', url=f"https://t.me/Zer0ByteSupport")],
+            [InlineKeyboardButton(text = '✨ Off-Topic', url=f"https://t.me/Friends_Chatting_Grp")],
+            [InlineKeyboardButton(text = '←', callback_data = f"help+{pos-1}")]
         ]
     else:
         button = [
             [
-                InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}"),
-                InlineKeyboardButton(text = '▶️', callback_data = f"help+{pos+1}")
+                InlineKeyboardButton(text = '←', callback_data = f"help+{pos-1}"),
+                InlineKeyboardButton(text = '→', callback_data = f"help+{pos+1}")
             ],
         ]
     return button
@@ -119,12 +119,12 @@ def map(pos):
 @Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
 async def ghelp(_, message: Message):
     await message.reply_text(
-        f"""**🙋‍♀️ Hello there! I can play music in the voice chats of telegram groups & channels.**""",
+        f"""**Hey There! This Is Zer0Byte 2.0, It Can Play Music In Your Voice Chat Groups And Channels Supported**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🟡 Click here for help 🟡", url=f"https://t.me/{BOT_USERNAME}?start"
+                        "❓ HELP", url=f"https://t.me/Zer0ByteMusicRoBot?start"
                     )
                 ]
             ]
