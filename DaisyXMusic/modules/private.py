@@ -47,6 +47,8 @@ def _start(client, message):
                 ],[
                     InlineKeyboardButton(
                         "✨ Off-Topic", url=f"https://t.me/Friends_Chatting_Grp")
+                    InlineKeyboardButton(
+                        "❄️ Commnads", url=f"https://t.me/Friends_Chatting_Grp")
                 ]
             ]
         ),
