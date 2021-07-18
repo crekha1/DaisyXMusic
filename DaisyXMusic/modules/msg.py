@@ -21,7 +21,7 @@ from DaisyXMusic.config import PROJECT_NAME
 from DaisyXMusic.config import SUPPORT_GROUP
 from DaisyXMusic.config import UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**✨ Welcome [{}](tg://user?id={})!**\n\nZer0Byte 2.0 is a **project** designed for play music in your **group's voice Chat**, as simple as possible\n\n❓ **How to use it?/n/nSend /help Command To Get Every Possible Commands/n/n**"
+      START_MSG = "**✨ Welcome [{}](tg://user?id={})!**\n\nZer0Byte 2.0 is a **project** designed for play music in your **group's voice Chat**, as simple as possible\n\n❓ **How to use it?\n\nSend /help Command To Get Every Possible Commands\n\n**"
       HELP_MSG = [
         ".",
 f"""
