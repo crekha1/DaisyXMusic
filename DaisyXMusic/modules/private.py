@@ -48,7 +48,7 @@ def _start(client, message):
                     InlineKeyboardButton(
                         "✨ Off-Topic", url=f"https://t.me/Friends_Chatting_Grp"),
                     InlineKeyboardButton(
-                        "❄️ Commnads", url=f"https://t.me/Friends_Chatting_Grp")
+                        "❄️ Commnads", url=f"https://telegra.ph/ZER0BYTE-20-HELP-MENU-07-18")
                 ]
             ]
         ),
