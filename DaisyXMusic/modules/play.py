@@ -1278,7 +1278,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ <b>Playing</b> here the song requested by {r_by.mention} via Zer0Byte 2.0",
+            caption=f"🎵**{atitle}** \n🕐 Duration : `{time_formatter(r["duration"])}` \n__Requested by__ : 👤 {r_by.mention}\n",
         )
         
         os.remove("final.png")
