@@ -46,7 +46,7 @@ def _start(client, message):
                         "👥 Support", url=f"https://t.me/Zer0ByteSupport")
                 ],[
                     InlineKeyboardButton(
-                        "✨ Off-Topic", url=f"https://t.me/Friends_Chatting_Grp")
+                        "✨ Off-Topic", url=f"https://t.me/Friends_Chatting_Grp"),
                     InlineKeyboardButton(
                         "❄️ Commnads", url=f"https://t.me/Friends_Chatting_Grp")
                 ]
